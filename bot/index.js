@@ -3,7 +3,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const herokuName = 'sad-telegram-bot'
 
 if (process.env.NODE_ENV === 'production') {
-    bot = new Bot(SadToken);
+    bot = new TelegramBot(SadToken);
     bot.setWebHook(`https://${herokuName}.herokuapp.com:${SadPort}` + bot.token);
 } else {
     bot = new Bot(token, {
