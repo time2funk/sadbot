@@ -1,5 +1,5 @@
 const SadToken = process.env.TOKEN;
-const SadPort = process.env.PORT || 443
+const SadPort = process.env.PORT || 443;
 require('./bot');
 
 var express = require('express');
