@@ -17,10 +17,7 @@ console.log('bot server started...');
 
 bot.onText(/^\/say_hello (.+)$/, function(msg, match) {
     var name = match[1];
-    bot.sendMessage(msg.chat.id, 'Hello ' + name + '!').then(function() {
-        // reply sent!
-        console.log('reply sent!');
-    });
+    bot.sendMessage(msg.chat.id, 'Hello ' + name + '!');
 });
 
 bot.onText(/^\/sum((\s+\d+)+)$/, function(msg, match) {
@@ -28,8 +25,5 @@ bot.onText(/^\/sum((\s+\d+)+)$/, function(msg, match) {
     match[1].trim().split(/\s+/).forEach(function(i) {
         result += (+i || 0);
     })
-    bot.sendMessage(msg.chat.id, result).then(function() {
-        // reply sent!
-        console.log('reply sent!');
-    });
+    bot.sendMessage(msg.chat.id, result);
 });
