@@ -8,8 +8,8 @@ if (process.env.NODE_ENV === 'production') {
     bot = new TelegramBot(process.env.TOKEN);//
     // bot.setWebHook(`https://${herokuName}.herokuapp.com:${process.env.PORT}` + ${TOKEN});
     // bot.setWebHook(`https://${herokuName}.herokuapp.com:${process.env.PORT}` + process.env.TOKEN);
-    bot.setWebHook(`https://${herokuName}.herokuapp.com:${process.env.PORT}/${process.env.TOKEN}`);
-    // bot.setWebHook(`https://${herokuName}.herokuapp.com:443/${process.env.TOKEN}`);
+    // bot.setWebHook(`https://${herokuName}.herokuapp.com:${process.env.PORT}/${process.env.TOKEN}`);
+    bot.setWebHook(`https://${herokuName}.herokuapp.com:443/${process.env.TOKEN}`);
 } else {
     bot = new Bot(token, {
         polling: true
