@@ -1,13 +1,15 @@
-
 const TelegramBot = require('node-telegram-bot-api');
 const herokuName = 'sad-telegram-bot';
 
 if (process.env.NODE_ENV === 'production') {
     console.log('production NODE_ENV');
-    console.log('TOKEN '+process.env.TOKEN);
-    console.log('PORT '+process.env.PORT);
-    bot = new TelegramBot(process.env.TOKEN);
-    bot.setWebHook(`https://${herokuName}.herokuapp.com:${process.env.PORT}` + bot.token);
+    console.log('TOKEN ' + process.env.TOKEN);
+    console.log('PORT ' + process.env.PORT);
+    bot = new TelegramBot(process.env.TOKEN);//
+    // bot.setWebHook(`https://${herokuName}.herokuapp.com:${process.env.PORT}` + ${TOKEN});
+    // bot.setWebHook(`https://${herokuName}.herokuapp.com:${process.env.PORT}` + process.env.TOKEN);
+    bot.setWebHook(`https://${herokuName}.herokuapp.com:${process.env.PORT}/${process.env.TOKEN}`);
+    // bot.setWebHook(`https://${herokuName}.herokuapp.com:443/${process.env.TOKEN}`);
 } else {
     bot = new Bot(token, {
         polling: true
@@ -27,3 +29,12 @@ bot.onText(/^\/sum((\s+\d+)+)$/, function(msg, match) {
     })
     bot.sendMessage(msg.chat.id, result);
 });
+
+// bot.sendMessage(msg.chat.id, 'Hi, do you want to travel?', {
+//     reply_markup: {
+//         keyboard: [
+//             [trigger],
+//             ['Bulk option']
+//         ]
+//     }
+// });

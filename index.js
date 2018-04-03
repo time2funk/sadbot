@@ -14,6 +14,7 @@ app.get('/', function(req, res) {
     });
 });
 app.post('/' + process.env.TOKEN, function(req, res) {
+	console.log('POST request '+req.body);
     bot.processUpdate(req.body);
     res.sendStatus(200);
 });
